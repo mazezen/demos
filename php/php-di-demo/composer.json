@@ -1,0 +1,24 @@
+{
+  "name": "mazezen/php-di-demo",
+  "description": "PHP-DI demo",
+  "type": "project",
+  "require": {
+    "php-di/php-di": "^6.0",
+    "twig/twig": "^3.2",
+    "mnapoli/silly": "^1.7",
+    "nikic/fast-route": "~0.5.0",
+    "php": ">=7.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Mazezen\\PhpDiDemo\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mazezen",
+      "email": "mazezen24@gmail.com"
+    }
+  ]
+}
