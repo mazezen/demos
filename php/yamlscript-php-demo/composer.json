@@ -1,0 +1,21 @@
+{
+  "name": "mazezen/yamlscript-php-demo",
+  "description": "YAMLScript demo",
+  "type": "proejct",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Mazezen\\YamlscriptPhpDemo\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mazezen",
+      "email": "mazezen24@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.3",
+    "yaml/yamlscript": "^0.3.7"
+  }
+}

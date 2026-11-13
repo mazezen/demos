@@ -1,0 +1,36 @@
+# config.yaml with YAMLScript:
+!ys-0:
+
+# Define variables
+db-host =: ENV.DB_HOST || 'localhost'
+db-port =: ENV.DB_PORT || 5432
+deploy =: ENV.DEPLOYMENT || 'dev'
+:when deploy !~ /^(dev|stage|prod)/:
+  die: |
+    Invalid deployment value '$deploy'.
+    Must be one of: dev | stage | prod
+
+# Normal YAML data
+description: Dynamic application configuration
+
+# Dynamic data values
+database:
+  host:: db-host
+  port:: db-port:num
+  name:: "app_$deploy"
+
+# Import external data
+features:: load('common.yaml').features
+
+# Use logic and conditions
+cache:
+  # Variable scoped to this mapping
+  enabled =: deploy == 'production'
+
+  directory: .cache
+  enabled:: enabled
+  limit: 100
+  # Conditional key/value pairs
+  :when enabled::
+    limit:: 1000
+    ttl:: 60 * 60  # 3600
